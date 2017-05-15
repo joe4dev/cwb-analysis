@@ -3,6 +3,7 @@
 ## Column Documentation
 
 | source | benchmark name as in CWB |
+| --- | --- |
 | benchmark_start_time | UNIX timestamp when the benchmark was triggered to run by CWB (not when the execution was created) |
 | execution_status | execution status as in CWB (most commonly FINISHED|FAILED ON PREPARING|FAILED ON RUNNING) see `cloud-workbench/app/models/event.rb` for exhaustive list |
 | provider_name | provider name as in CWB (using the [Vagrant provider names](https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Plugins)) |
