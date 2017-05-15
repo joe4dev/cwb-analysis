@@ -4,6 +4,7 @@ This repository stores the raw data and analysis scripts for the cloud benchmark
 
 ## Repository Structure
 
+```
 .
 ├── cwb_db_dumps            ## PostgreSQL database dumps
 ├── data_raw                ## Unaltered raw data as empirically observed
@@ -12,7 +13,11 @@ This repository stores the raw data and analysis scripts for the cloud benchmark
 ├── data_cleaned            ## Pre-processed intermediate data
 ├── scripts                 ## Data exporting and processing scripts
     ├── cwb_exporter.rb     # CWB raw data exporter script
-    ├── cwb_exporter.sh     # CWB raw data exporter script runner for production
+    ├── cwb_exporter.sh     # CWB exporter script runner for production
+    ├── pre-process.sh      # Pre-process runner script
+    ├── pre-process.rmp     # RapidMiner Studio process
+    ├── pre-process.md      # Pre-process documentation
+```
 
 ## Export Raw Data from CWB
 
