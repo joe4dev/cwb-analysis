@@ -7,11 +7,11 @@
   * `-version`: version number
 
 | Column (i.e., Metric Name) | Unit | Explanation |
-| --- | --- | |
+| --- | --- | --- |
 | **provider_vm_id_iteration** | row ID | concatenation of <provider_vm_id>_<iteration> used for pivot |
-| **source** | N/A | benchmark name as in CWB |
 | **provider_vm_id** | N/A | VM identifier as used in CWB (using the Vagrant id)  |
 | **iteration** | number | number identifying the iteration (usually 1, 2, or 3) of a benchmark within the same instance |
+| **source** | N/A | benchmark name as in CWB |
 | benchmark/order | [{benchmark class name}, ...] | |
 | fio/4k-seq-write-bandwidth | KiB/s | |
 | fio/4k-seq-write-disk-util | % | |
