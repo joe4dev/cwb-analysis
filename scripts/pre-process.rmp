@@ -341,7 +341,7 @@
         <description align="center" color="transparent" colored="false" width="126">Set RapidMiner Metadata</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.5.001" expanded="true" height="68" name="Store" width="90" x="715" y="34">
-        <parameter key="repository_entry" value="../data/cwb-data-interim"/>
+        <parameter key="repository_entry" value="//Local Repository/data/cwb-data-interim"/>
         <description align="center" color="transparent" colored="false" width="126">Store as RapidMiner Dataset</description>
       </operator>
       <connect from_op="Read CSV" from_port="output" to_op="Loop over Sources" to_port="input 1"/>
