@@ -175,7 +175,7 @@
                 <parameter key="replace_what" value="value_"/>
                 <description align="center" color="transparent" colored="false" width="126">Discard the &amp;quot;value_&amp;quot; Prefix from Pivoting</description>
               </operator>
-              <operator activated="true" class="select_attributes" compatibility="7.5.001" expanded="true" height="82" name="Discard Execution Log" width="90" x="447" y="34">
+              <operator activated="true" class="select_attributes" compatibility="7.5.001" expanded="true" height="82" name="Discard Exec... Log" width="90" x="447" y="34">
                 <parameter key="attribute_filter_type" value="single"/>
                 <parameter key="attribute" value="benchmark/execution-log"/>
                 <parameter key="attributes" value=""/>
@@ -241,8 +241,8 @@
               <connect from_port="in 1" to_op="Create Pivot Column" to_port="example set input"/>
               <connect from_op="Create Pivot Column" from_port="example set output" to_op="Pivot" to_port="example set input"/>
               <connect from_op="Pivot" from_port="example set output" to_op="Rename by Replacing" to_port="example set input"/>
-              <connect from_op="Rename by Replacing" from_port="example set output" to_op="Discard Execution Log" to_port="example set input"/>
-              <connect from_op="Discard Execution Log" from_port="example set output" to_op="Sort Attributes A-Z" to_port="example set input"/>
+              <connect from_op="Rename by Replacing" from_port="example set output" to_op="Discard Exec... Log" to_port="example set input"/>
+              <connect from_op="Discard Exec... Log" from_port="example set output" to_op="Sort Attributes A-Z" to_port="example set input"/>
               <connect from_op="Sort Attributes A-Z" from_port="example set output" to_op="Convert Units" to_port="input 1"/>
               <connect from_op="Convert Units" from_port="output 1" to_op="Guess Types" to_port="example set input"/>
               <connect from_op="Guess Types" from_port="example set output" to_op="Parse Numbers" to_port="example set input"/>
@@ -256,7 +256,7 @@
           </operator>
           <operator activated="true" class="subprocess" compatibility="7.5.001" expanded="true" height="82" name="3) Cleansing" width="90" x="514" y="34">
             <process expanded="true">
-              <operator activated="true" class="replace_missing_values" compatibility="7.5.001" expanded="true" height="103" name="Replace Missing Values" width="90" x="246" y="34">
+              <operator activated="true" class="replace_missing_values" compatibility="7.5.001" expanded="true" height="103" name="Replace Missing Vals" width="90" x="45" y="34">
                 <parameter key="return_preprocessing_model" value="false"/>
                 <parameter key="create_view" value="false"/>
                 <parameter key="attribute_filter_type" value="subset"/>
@@ -273,25 +273,28 @@
                 <parameter key="include_special_attributes" value="false"/>
                 <parameter key="default" value="average"/>
                 <list key="columns"/>
+                <description align="center" color="transparent" colored="false" width="126">Replace Missing Values by the Average</description>
               </operator>
-              <operator activated="true" class="order_attributes" compatibility="7.5.001" expanded="true" height="82" name="Sort Attributes A-Z (again)" width="90" x="581" y="34">
+              <operator activated="true" class="order_attributes" compatibility="7.5.001" expanded="true" height="82" name="Sort Attributes A-Z (again)" width="90" x="246" y="34">
                 <parameter key="sort_mode" value="alphabetically"/>
                 <parameter key="attribute_ordering" value=""/>
                 <parameter key="use_regular_expressions" value="false"/>
                 <parameter key="handle_unmatched" value="append"/>
                 <parameter key="sort_direction" value="ascending"/>
+                <description align="center" color="transparent" colored="false" width="126">Sort all Columns Alphabetically</description>
               </operator>
-              <operator activated="true" class="order_attributes" compatibility="7.5.001" expanded="true" height="82" name="Reorder Attributes" width="90" x="715" y="34">
+              <operator activated="true" class="order_attributes" compatibility="7.5.001" expanded="true" height="82" name="List Metadata First" width="90" x="380" y="34">
                 <parameter key="sort_mode" value="user specified"/>
                 <parameter key="attribute_ordering" value="provider_vm_id_iteration|provider_vm_id|iteration|source"/>
                 <parameter key="use_regular_expressions" value="false"/>
                 <parameter key="handle_unmatched" value="append"/>
                 <parameter key="sort_direction" value="ascending"/>
+                <description align="center" color="transparent" colored="false" width="126">Move Metadata Columns to the Front Columns</description>
               </operator>
-              <connect from_port="in 1" to_op="Replace Missing Values" to_port="example set input"/>
-              <connect from_op="Replace Missing Values" from_port="example set output" to_op="Sort Attributes A-Z (again)" to_port="example set input"/>
-              <connect from_op="Sort Attributes A-Z (again)" from_port="example set output" to_op="Reorder Attributes" to_port="example set input"/>
-              <connect from_op="Reorder Attributes" from_port="example set output" to_port="out 1"/>
+              <connect from_port="in 1" to_op="Replace Missing Vals" to_port="example set input"/>
+              <connect from_op="Replace Missing Vals" from_port="example set output" to_op="Sort Attributes A-Z (again)" to_port="example set input"/>
+              <connect from_op="Sort Attributes A-Z (again)" from_port="example set output" to_op="List Metadata First" to_port="example set input"/>
+              <connect from_op="List Metadata First" from_port="example set output" to_port="out 1"/>
               <portSpacing port="source_in 1" spacing="0"/>
               <portSpacing port="source_in 2" spacing="0"/>
               <portSpacing port="sink_out 1" spacing="0"/>
