@@ -10,10 +10,11 @@ This repository stores the raw data and analysis scripts for the cloud benchmark
 | `├──` [dump-cwb-db.md](cwb_db_dumps/dump-cwb-db.md) | Dump CWB DB docs |
 | **data_interim** | **Pre-processed intermediate data** |
 | `├──` cwb-data-interim.csv | Pre-processed data via `scripts/pre-process.sh` |
+| `├──` [cwb-data-interim.md](data_interim/cwb-data-interim.md) | Describes the interim (i.e., pre-processed) data set |
 | **data_raw** | **Unaltered raw data as empirically observed** |
 | `├──` cwb-data-raw.csv | Exported from CWB via `scripts/cwb_exporter.rb` |
 | `├──` cwb-data-raw.log | CWB export log from `scripts/cwb_exporter.rb` |
-| `├──` [cwb-data-raw.md](data_raw/cwb-data-raw.md) | CWB export log from `scripts/cwb_exporter.rb` |
+| `├──` [cwb-data-raw.md](data_raw/cwb-data-raw.md) | Describes the raw data set |
 | **scripts** | **Data exporting and processing scripts** |
 | `├──` [cwb_exporter.md](scripts/cwb_exporter.md) | CWB exporter docs |
 | `├──` cwb_exporter.rb | CWB raw data exporter script |
