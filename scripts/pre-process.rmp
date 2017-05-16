@@ -135,7 +135,7 @@
           <operator activated="true" class="pivot" compatibility="7.5.001" expanded="true" height="82" name="Pivot on Metrics" width="90" x="179" y="34">
             <parameter key="group_attribute" value="provider_vm_id_iteration"/>
             <parameter key="index_attribute" value="metric_name"/>
-            <parameter key="consider_weights" value="true"/>
+            <parameter key="consider_weights" value="false"/>
             <parameter key="weight_aggregation" value="minimum"/>
             <parameter key="skip_constant_attributes" value="true"/>
             <parameter key="datamanagement" value="double_array"/>
