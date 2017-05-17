@@ -3,13 +3,14 @@
 ## Setup for Automation
 
 1. Save login credentials via a [password file](https://www.postgresql.org/docs/9.6/static/libpq-pgpass.html). Adjust credentials accordingly!
-2. Adjust the first SSH command here and in `dump-cwb-db.sh`:
 
-```
-ssh -i ~/.ssh/cloud-benchmarking.pem ubuntu@cwb.io
-echo "localhost:5432:cloud_workbench_production:postgres:rootcloud" > ~/.pgpass
-chmod 0600 ~/.pgpass
-```
+    ```
+    ssh -i ~/.ssh/cloud-benchmarking.pem ubuntu@cwb.io
+    echo "localhost:5432:cloud_workbench_production:postgres:rootcloud" > ~/.pgpass
+    chmod 0600 ~/.pgpass
+    ```
+
+2. Adjust the variables (CWB_SERVER and SSH_KEY) in `dump-cwb-db.sh`
 
 ## Export
 
