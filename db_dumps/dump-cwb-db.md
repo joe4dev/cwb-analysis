@@ -1,6 +1,6 @@
 # PostgreSQL Database Dumps
 
-## Setup for Automation
+## Setup for Cloud Automation
 
 1. Save login credentials via a [password file](https://www.postgresql.org/docs/9.6/static/libpq-pgpass.html). Adjust credentials accordingly!
 
@@ -12,13 +12,13 @@
 
 2. Adjust the variables (CWB_SERVER and SSH_KEY) in `dump-cwb-db.sh`
 
-## Export
+## Export Cloud
 
 ```
 ./dump-cwb-db.sh
 ```
 
-### Manual Export
+## Manual Export
 
 ```shell
 pg_dump cloud_workbench_production -U postgres -h localhost -f cloud_workbench_production.sql
@@ -26,7 +26,7 @@ pg_dump cloud_workbench_production -U postgres -h localhost -f cloud_workbench_p
 
 Note: The cloud user (i.e., `-U cloud`) would be sufficient too.
 
-### Manual Import
+## Manual Import
 
 ```shell
 createuser cloud
