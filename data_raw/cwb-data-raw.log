@@ -1,4 +1,3 @@
-Running via Spring preloader in process 50837
 [MISSING VALUE] rmit-combined_v3_aws-us_m3.medium-fio/4k-seq-write-latency-i-0402d734b0ecb23c3-1
 [MISSING VALUE] rmit-combined_v3_aws-us_m1.small-sysbench/fileio-4k-rand-write-throughput-i-0646e52d2aabf90e7-1
 [MISSING VALUE] rmit-combined_v3_aws-us_m1.small-sysbench/fileio-4k-rand-write-throughput-i-0776166142482f285-1
