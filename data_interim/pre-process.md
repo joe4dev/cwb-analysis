@@ -35,7 +35,7 @@ These metrics report static values (e.g., duration) by design and thus the missi
 | --- | --- | --- |
 | iperf/multi-thread-duration¹ | 30 | 348 |
 | iperf/single-thread-duration¹ | 30 | 348 |
-| fio/8k-rand-write-duration¹ | 60000 | 348 |
+| fio/8k-rand-read-duration¹ | 60000 | 348 |
 
 ¹ The duration attributes for iperf and fio were introduced during the experiment to consistently report the duration for each benchmark.
 

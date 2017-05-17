@@ -19,12 +19,12 @@
 | fio/4k-seq-write-iops | iops | |
 | fio/4k-seq-write-latency | microseconds | |
 | fio/4k-seq-write-latency-95-percentile | microseconds | |
-| fio/8k-rand-write-bandwidth | KiB/s | |
-| fio/8k-rand-write-disk-util | % | |
-| fio/8k-rand-write-duration | milliseconds | |
-| fio/8k-rand-write-iops | iops | |
-| fio/8k-rand-write-latency | microseconds | |
-| fio/8k-rand-write-latency-95-percentile | microseconds | |
+| fio/8k-rand-read-bandwidth | KiB/s | |
+| fio/8k-rand-read-disk-util | % | |
+| fio/8k-rand-read-duration | milliseconds | |
+| fio/8k-rand-read-iops | iops | |
+| fio/8k-rand-read-latency | microseconds | |
+| fio/8k-rand-read-latency-95-percentile | microseconds | |
 | fio/version | version number | |
 | instance/cpu-cores | number of cores | |
 | instance/cpu-model | model name | |
