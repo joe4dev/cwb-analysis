@@ -261,7 +261,7 @@
                 <parameter key="create_view" value="false"/>
                 <parameter key="attribute_filter_type" value="subset"/>
                 <parameter key="attribute" value=""/>
-                <parameter key="attributes" value="iperf/multi-thread-duration|iperf/single-thread-duration|fio/8k-rand-write-duration|fio/4k-seq-write-duration|sysbench/fileio-4k-rand-read-prepare-duration|fio/4k-seq-write-latency|sysbench/fileio-4k-rand-write-throughput"/>
+                <parameter key="attributes" value="iperf/multi-thread-duration|iperf/single-thread-duration|fio/4k-seq-write-duration|sysbench/fileio-4k-rand-read-prepare-duration|fio/4k-seq-write-latency|sysbench/fileio-4k-rand-write-throughput|fio/8k-rand-read-duration"/>
                 <parameter key="use_except_expression" value="false"/>
                 <parameter key="value_type" value="attribute_value"/>
                 <parameter key="use_value_type_exception" value="false"/>
