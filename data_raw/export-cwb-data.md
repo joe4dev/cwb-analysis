@@ -1,18 +1,19 @@
 ## Export Raw Data from CWB
 
-### Production
+## Setup for Automation
 
-```shell
-scp -r scripts/cwb_exporter.* ubuntu@$CWB:/home/ubuntu/
-ssh ubuntu@$CWB
-bash cwb_exporter.sh >cwb-raw-data.csv 2>cwb-raw-data.log
+1. Adjust the variables (CWB_SERVER and SSH_KEY) in `export-cwb-data.sh`:
+
+## Export
+
+```
+./export-cwb-data.sh
 ```
 
-### Development (local)
+### Export Local
+
+1. Adjust the variables (CWB_REPO_PATH) in `export-cwb-data-local.sh`
 
 ```shell
-cwd=$(pwd)
-cd $CWB_REPO_PATH
-bin/rails runner $cwd/scripts/cwb_exporter.rb >$cwd/data_raw/cwb-data-raw.csv 2>$cwd/data_raw/cwb-data-raw.log
-cd $cwd
+./export-cwb-data-local.sh
 ```
