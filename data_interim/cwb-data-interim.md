@@ -97,3 +97,20 @@
 | wordpress-bench/s3-num_failures  | count | |
 | wordpress-bench/s3-response_time | milliseconds | |
 | wordpress-bench/s3-throughput    | operations per second | |
+
+## Source Mapping
+
+This table clarifies the not fully consistent CWB naming scheme due to benchmark evolution. The rules are as follows:
+
+* no region prefix => eu-west-1a
+* `eu` region prefix => eu-west-1a
+* `us` region prefix => us-east-1a
+
+| **CWB Benchmark Name** | **Region** |
+| --- | --- |
+| rmit-combined_v3_aws-eu_m1.small | eu-west-1a |
+| rmit-combined_v3_aws-us_m1.small | us-east-1a |
+| rmit-combined_v3_aws-us_m3.medium | us-east-1a |
+| rmit-combined_v3_aws_c4.large | eu-west-1a |
+| rmit-combined_v3_aws_m3.large | eu-west-1a |
+| rmit-combined_v3_aws_m3.medium | eu-west-1a |
