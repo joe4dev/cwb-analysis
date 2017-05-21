@@ -220,9 +220,9 @@
             <description align="center" color="transparent" colored="false" width="126">Guess Data Types for All Columns</description>
           </operator>
           <operator activated="true" class="parse_numbers" compatibility="7.5.001" expanded="true" height="82" name="Parse Numbers" width="90" x="983" y="34">
-            <parameter key="attribute_filter_type" value="single"/>
+            <parameter key="attribute_filter_type" value="subset"/>
             <parameter key="attribute" value="fio/4k-seq-write-latency"/>
-            <parameter key="attributes" value=""/>
+            <parameter key="attributes" value="|fio/4k-seq-write-latency|sysbench/fileio-4k-rand-write-throughput"/>
             <parameter key="use_except_expression" value="false"/>
             <parameter key="value_type" value="nominal"/>
             <parameter key="use_value_type_exception" value="false"/>
