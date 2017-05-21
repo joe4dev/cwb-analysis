@@ -8,8 +8,9 @@ SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
 aggregate=$SCRIPTPATH/aggregate-iterations.rmp
 select=$SCRIPTPATH/select.rmp
 filter=$SCRIPTPATH/filter.rmp
+outFile=$SCRIPTPATH/cwb-interim-aggregated-selected-filtered.csv
 
 # Run RapidMiner script in CLI-mode
 rapidminer-batch.sh -f $aggregate
 rapidminer-batch.sh -f $select
-rapidminer-batch.sh -f $filter
+rapidminer-batch.sh -f $filter -MoutFile=$outFile
