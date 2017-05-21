@@ -289,7 +289,10 @@
                 <parameter key="invert_selection" value="false"/>
                 <parameter key="include_special_attributes" value="false"/>
                 <parameter key="default" value="average"/>
-                <list key="columns"/>
+                <list key="columns">
+                  <parameter key="sysbench/fileio-4k-rand-write-throughput" value="value"/>
+                </list>
+                <parameter key="replenishment_value" value="0.855"/>
                 <description align="center" color="transparent" colored="false" width="126">Replace Missing Values using the Average</description>
               </operator>
               <operator activated="true" class="order_attributes" compatibility="7.5.001" expanded="true" height="82" name="Sort Columns A-Z (2)" width="90" x="246" y="34">
@@ -316,6 +319,7 @@
               <portSpacing port="source_in 2" spacing="0"/>
               <portSpacing port="sink_out 1" spacing="0"/>
               <portSpacing port="sink_out 2" spacing="0"/>
+              <description align="center" color="yellow" colored="false" height="186" resized="true" width="276" x="20" y="244">`sysbench/fileio-4k-rand-write-throughput`&lt;br&gt;m1.small us-east-1a&lt;br/&gt;&lt;br&gt;The constant value 0.855 is used as a replacement because the missing values are caused by the &amp;quot;Kb/sec&amp;quot; vs &amp;quot;Mb/sec&amp;quot; inconsistency. The constant 0.855 corresponds to the average of all values below 1 Mb/sec.</description>
             </process>
             <description align="center" color="transparent" colored="false" width="126">Clean the Data&lt;br/&gt;(e.g., Replace Missing Values)</description>
           </operator>
