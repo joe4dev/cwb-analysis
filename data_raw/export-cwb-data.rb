@@ -1,5 +1,5 @@
 # List of BenchmarkDefinition IDs to export:
-export_ids = [20,21,22,23,26,29,33]
+export_ids = [20,21,22,23,26,29,33,38,39,40,41,42]
 
 class Exporter
   # Exports all metrics from all benchmarks into a single flat CSV
