@@ -36,7 +36,9 @@ vars.nominal <- names(cwb) %in% (cols.nominal)
 cwb.cv <- aggregate(cwb[!vars.nominal], by=list(cwb$source), FUN=cv)
 
 # Assign labels
-cwb.cv$Group.1 <- factor(cwb.cv$Group.1, labels = c("m1.small (eu)", "m1.small (us)", "m3.medium (us)", "m3.large (eu)", "m3.medium (eu)"))
+
+cwb.cv$Group.1 <- factor(cwb.cv$Group.1, c("rmit-combined_v3_aws-eu_m1.small", "rmit-combined_v3_aws-us_m1.small", "rmit-combined_v3_aws_m3.medium", "rmit-combined_v3_aws-us_m3.medium", "rmit-combined_v3_aws_m3.large"))
+cwb.cv$Group.1 <- factor(cwb.cv$Group.1, labels = c("m1.small (eu)", "m1.small (us)", "m3.medium (eu)", "m3.medium (us)", "m3.large (eu)"))
 
 # Reshape data
 df <- melt(cwb.cv, id.vars = 'Group.1')
