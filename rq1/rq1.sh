@@ -14,3 +14,6 @@ outFile=$SCRIPTPATH/cwb-interim-aggregated-selected-filtered.csv
 rapidminer-batch.sh -f $aggregate
 rapidminer-batch.sh -f $select
 rapidminer-batch.sh -f $filter -MoutFile=$outFile
+
+# Generate plot
+Rscript $SCRIPTPATH/rsd-plots.R
