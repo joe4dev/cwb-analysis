@@ -1,6 +1,3 @@
-# library(psych)
-# library(plyr)
-# library(doBy)
 library(sp)
 library(raster)
 library(reshape2)
