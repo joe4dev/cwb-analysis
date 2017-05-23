@@ -47,6 +47,24 @@ df <- melt(cwb.cv, id.vars = 'Group.1')
 means <- aggregate(value ~  Group.1, df, mean)
 means$value <- round(means$value, digits = 2)
 
+### Relevant sample sizes
+
+cwb.sd <- aggregate(cwb[!vars.nominal], by=list(cwb$source), FUN=sd)
+cwb.mean <- aggregate(cwb[!vars.nominal], by=list(cwb$source), FUN=mean)
+
+vars.group1 <- names(cwb.sd) %in% (c('Group.1'))
+# 95% CI
+# z values from confidence intervals table:
+# https://www.ltcconline.net/greenl/courses/201/estimation/smallConfLevelTable.htm
+z.ci95 <- 1.96
+cwb.n95 <- ceiling(((z.ci95 * cwb.sd[!vars.group1])/(cwb.mean[!vars.group1] * 0.05))^2)
+cwb.n95 <- cbind(cwb.n95, Group.1 = as.vector(cwb.sd$Group.1))
+
+# 99% CI
+z.ci99 <- 2.576
+cwb.n99 <- ceiling(((z.ci99 * cwb.sd[!vars.group1])/(cwb.mean[!vars.group1] * 0.05))^2)
+cwb.n99 <- cbind(cwb.n99, Group.1 = as.vector(cwb.sd$Group.1))
+
 ### Plotting ###
 
 # Axis helper
