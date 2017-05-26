@@ -1,5 +1,6 @@
 library(ggplot2)
 library(data.table)
+library(dplyr) # For the pipe "%>%" operator and filter
 
 ### BEGIN CONFIGUARION ###
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
