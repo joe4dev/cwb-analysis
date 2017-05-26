@@ -94,5 +94,5 @@ p <- ggplot(df, aes(x = Group.1, y = value)) +
   geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue")
 print(p)
 dev.off()
-# Print interactively
-print(p)
+# Yield interactively
+p
