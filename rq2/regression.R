@@ -44,13 +44,18 @@ summary(model)
 appPred = predict(model, test)
 actuals_preds <- data.frame(cbind(actuals=test[[label]], predicteds=appPred))#, instance.type=test$instance.type) 
 
+
 # Calculate metrics
 correlation_accuracy <- cor(actuals_preds)
 
 min_max_accuracy <- mean(apply(actuals_preds, 1, min) / apply(actuals_preds, 1, max))
 absPerErr <- abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actuals
 absPerErr.grouped <- absPerErr[seq(1, length(absPerErr), 3)]
-mape <- mean(abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actuals)
+actuals_preds$relErr <- (actuals_preds$predicteds - actuals_preds$actuals)/actuals_preds$actuals
+actuals_preds$instance.type <- test$instance.type
+mape <- mean(abs(actuals_preds$relErr))
+
+actuals_preds.mean <- aggregate(actuals_preds[,names(actuals_preds) != "instance.type"], by=list(actuals_preds$instance.type), FUN=mean)
 
 # Prepare plot date
 test$group <- "test"
