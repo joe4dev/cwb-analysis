@@ -26,6 +26,7 @@ all.csv <- read.csv(src.file, header = TRUE, sep = ';')
 
 # Split train and test data
 all <- data.table(all.csv, key = 'provider_vm_id_iteration')
+all <- all[all$iteration == "1",]
 train <- data.table(all %>% filter(instance.type == "m1.small" | instance.type == "c1.xlarge"), key = 'provider_vm_id_iteration')
 test <- all[!train]
 
@@ -63,24 +64,21 @@ train$group <- "train"
 visual <- rbind(test, train)
 
 # Order instance type labels
-visual$instance.type <- factor(visual$instance.type, levels=c("m1.small", "m3.medium (pv)", "m3.medium (hvm)", "m1.medium", "m3.large", "m1.large", "c3.large", "m4.large", "c4.large", "c4.xlarge", "c3.xlarge", "c1.xlarge"))
+visual$instance.type <- factor(visual$instance.type, levels=c("m1.small", "m3.medium (pv)", "m3.medium (hvm)", "m1.medium", "m3.large", "m1.large", "c3.large", "m4.large", "c4.large", "c3.xlarge", "c4.xlarge", "c1.xlarge"))
 
 # Generate plot
 pdf(file=out.file, width = 7.50, height = 8)
-p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.type', fill='instance.type', shape = 'group')) +
+p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.type', shape = 'group')) +
   # Color according to:
   # library(scales)
   # show_col(hue_pal()(2))
-  geom_smooth(data=train, aes_string(x=micro, y=label), fill="blue",
-            colour="black", size=0.4, method = "lm") +
+  geom_line(data=train, aes_string(x=micro, y=label),
+            colour="black", size=0.4) +
   geom_point(size=3) +
   labs(x = "Sysbench CPU - Multi Thread Duration [s]") +
   labs(y = "WPBench Read - Response Time [ms]") +
   scale_shape_discrete("Group") +
-  scale_color_discrete("Instance Type") +
-  scale_fill_discrete("Instance Type")
-
-  # geom_smooth(method = "lm")
+  scale_color_discrete("Instance Type")
 print(p)
 dev.off()
 
