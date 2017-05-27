@@ -98,15 +98,15 @@
 | wordpress-bench/s1-failure_rate⁵  | ratio | |
 | wordpress-bench/s1-num_failures⁵  | count | |
 | wordpress-bench/s1-response_time⁵ | milliseconds | |
-| wordpress-bench/s1-throughput⁵    | operations per second | |
+| wordpress-bench/s1-throughput⁵    | requests per second | |
 | wordpress-bench/s2-failure_rate⁵  | ratio | |
 | wordpress-bench/s2-num_failures⁵  | count | |
 | wordpress-bench/s2-response_time⁵ | milliseconds | |
-| wordpress-bench/s2-throughput⁵    | operations per second | |
+| wordpress-bench/s2-throughput⁵    | requests per second | |
 | wordpress-bench/s3-failure_rate⁵  | ratio | |
 | wordpress-bench/s3-num_failures⁵  | count | |
 | wordpress-bench/s3-response_time⁵ | milliseconds | |
-| wordpress-bench/s3-throughput⁵    | operations per second | |
+| wordpress-bench/s3-throughput⁵    | requests per second | |
 
 ## Source Mapping
 
