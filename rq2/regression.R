@@ -1,6 +1,7 @@
 library(ggplot2)
 library(data.table)
 library(dplyr) # For the pipe "%>%" operator and filter
+library(RColorBrewer)
 
 ### BEGIN CONFIGUARION ###
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
@@ -66,6 +67,14 @@ visual <- rbind(test, train)
 # Order instance type labels
 visual$instance.type <- factor(visual$instance.type, levels=c("m1.small", "m3.medium (pv)", "m3.medium (hvm)", "m1.medium", "m3.large", "m1.large", "c3.large", "m4.large", "c4.large", "c3.xlarge", "c4.xlarge", "c1.xlarge"))
 
+# Create color palette with distinct colors
+# n <- nrow(actuals_preds.mean)
+n <- length(unique(all$instance.type))
+# Expand default color palette:
+# http://novyden.blogspot.ch/2013/09/how-to-expand-color-palette-with-ggplot.html
+# Also see: http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
+myPalette <- colorRampPalette(brewer.pal(9, "Set1"))(n)
+
 # Generate plot
 pdf(file=out.file, width = 7.50, height = 8)
 p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.type', shape = 'group')) +
@@ -79,6 +88,7 @@ p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.ty
   labs(y = "WPBench Read - Response Time [ms]") +
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type")
+  # scale_color_manual("Instance Type", values = myPalette)
 print(p)
 dev.off()
 
