@@ -1,4 +1,4 @@
-source;instance.type;region;vcpus;ecu
+source;instance.type;region;vcpus;ecu;costs.hourly
 rmit-combined_v3_aws-eu_m1.small;m1.small;eu;1;1
 rmit-combined_v3_aws-us_c4.large;c4.large;us;2;8
 rmit-combined_v3_aws-us_c4.xlarge;c4.xlarge;us;4;16
@@ -15,6 +15,12 @@ rmit-combined_v4_aws-eu_c4.large;c4.large;eu;2;8
 rmit-combined_v4_aws-eu_c4.xlarge;c4.xlarge;eu;4;16
 rmit-combined_v4_aws-eu_m1.small;m1.small;eu;1;1
 rmit-combined_v4_aws-eu_m3.large;m3.large;eu;2;6.5
-rmit-combined_v4_aws-eu_m3.medium;m3.medium;eu;1;3
+rmit-combined_v4_aws-eu_m3.medium;m3.medium (hvm);eu;1;3
 rmit-combined_v4_aws-eu_m4.large;m4.large;eu;2;6.5
 rmit-combined_v4_aws-eu_c1.xlarge;c1.xlarge;eu;8;20
+rmit-combined_v4_aws-eu_m1.medium;m1.medium;eu;1;2;0.095
+rmit-combined_v4_aws-eu_c1.medium;c1.medium;eu;2;5;0.148
+rmit-combined_v4_aws-eu_m1.large;m1.large;eu;2;5;0.190
+rmit-combined_v4_aws-eu_c3.large;c3.large;eu;2;7;0.120
+rmit-combined_v4_aws-eu_c3.xlarge;c3.xlarge;eu;4;14;0.239
+rmit-combined_v4_aws-eu_m3.medium-pv;m3.medium (pv);eu;1;3

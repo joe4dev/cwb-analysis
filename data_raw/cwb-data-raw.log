@@ -5,3 +5,4 @@
 [MISSING VALUE] rmit-combined_v3_aws-us_m1.small-sysbench/fileio-4k-rand-write-throughput-i-02e141b36e7642040-1
 [MISSING VALUE] rmit-combined_v3_aws-us_m1.small-sysbench/fileio-4k-rand-write-throughput-i-06103db2f6185e3c0-1
 [MISSING VALUE] rmit-combined_v4_aws-eu_m1.small-fio/4k-seq-write-latency-i-04544189819b35dee-1
+[MISSING VALUE] rmit-combined_v4_aws-eu_m3.medium-pv-fio/4k-seq-write-latency-i-047d647100721ce1c-1

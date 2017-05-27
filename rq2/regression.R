@@ -58,7 +58,7 @@ train$group <- "train"
 visual <- rbind(test, train)
 
 # Order instance type labels
-visual$instance.type <- factor(visual$instance.type, levels=c("m1.small", "m3.medium", "m3.large", "m4.large", "c4.large", "c4.xlarge", "c1.xlarge"))
+visual$instance.type <- factor(visual$instance.type, levels=c("m1.small", "m3.medium (pv)", "m3.medium (hvm)", "m1.medium", "m3.large", "m1.large", "c3.large", "m4.large", "c4.large", "c4.xlarge", "c3.xlarge", "c1.xlarge"))
 
 # Generate plot
 pdf(file=out.file, width = 7.50, height = 8)
@@ -70,7 +70,7 @@ p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.ty
             colour="black", size=0.4, method = "lm") +
   geom_point(size=3) +
   labs(x = "Sysbench CPU - Multi Thread Duration [s]") +
-  labs(y = "WPBench Scenario 1 - Response Time [ms]") +
+  labs(y = "WPBench Read - Response Time [ms]") +
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type") +
   scale_fill_discrete("Instance Type")
