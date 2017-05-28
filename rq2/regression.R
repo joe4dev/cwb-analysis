@@ -11,14 +11,17 @@ src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq2' # script.dir
 src.file_name <- 'all.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '~/Papers/tex16-master-thesis-17/img' # script.dir
-out.file_name <- 'regression-graph.pdf'
+out.dir <- src.dir #'~/Papers/tex16-master-thesis-17/img' # script.dir
+out.file_name <- 'graph-regression.pdf'
 
 # Define label and benchmark for linear model
 label <- 'wordpress.bench.s1.response_time'
 # label <- 'md.sim.duration'
 micro <- 'sysbench.cpu.multi.thread.duration'
+
+# label <- 'wordpress.bench.s1.throughput'
 # micro <- 'stressng.network.icmp.flood.bogo.ops'
+# micro <- 'vcpus'
 
 ### END CONFIGURATION ###
 
@@ -37,6 +40,7 @@ all.csv <- read.csv(src.file, header = TRUE, sep = ';')
 # Split train and test data
 all <- data.table(all.csv, key = 'provider_vm_id_iteration')
 # all <- all[all$iteration == "2",] # Filter iteration
+# train <- data.table(all %>% filter(instance.type == "m1.small" | instance.type == "c4.large"), key = 'provider_vm_id_iteration')
 train <- data.table(all %>% filter(instance.type == "m1.small" | instance.type == "c1.xlarge"), key = 'provider_vm_id_iteration')
 test <- all[!train]
 
@@ -58,11 +62,14 @@ correlation_accuracy <- cor(actuals_preds)
 min_max_accuracy <- mean(apply(actuals_preds, 1, min) / apply(actuals_preds, 1, max))
 absPerErr <- abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actuals
 absPerErr.grouped <- absPerErr[seq(1, length(absPerErr), 3)]
-actuals_preds$relErr <- (actuals_preds$predicteds - actuals_preds$actuals)/actuals_preds$actuals
+actuals_preds$relErr <- abs((actuals_preds$predicteds - actuals_preds$actuals)/actuals_preds$actuals)
 actuals_preds$instance.type <- test$instance.type
 mape <- mean(abs(actuals_preds$relErr))
 
 actuals_preds.mean <- aggregate(actuals_preds[,names(actuals_preds) != "instance.type"], by=list(actuals_preds$instance.type), FUN=mean)
+
+# Maximum estimation error: This values gives an indication how far apart the actual min and max values are (i.e., how easy it is to obtain a large error).
+min_max_factor <- (max(actuals_preds.mean$actuals)-min(actuals_preds.mean$actuals))/min(actuals_preds.mean$actuals)
 
 # Prepare plot date
 test$group <- "test"
@@ -89,8 +96,8 @@ p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.ty
   geom_smooth(data=train, aes_string(x=micro, y=label),
             colour="black", size=0.4, method = "lm") +
   geom_point(size=3) +
-  labs(x = "Sysbench CPU - Multi Thread Duration [s]") +
-  labs(y = "WPBench Read - Response Time [ms]") +
+  # labs(x = "StressNg - Network Ping [bogo operations/s]") +
+  # labs(y = "WPBench Write - Throughput [requests/s]") +
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type")
   # scale_color_manual("Instance Type", values = myPalette)
