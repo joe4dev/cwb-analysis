@@ -110,8 +110,20 @@
             <list key="filters_list">
               <parameter key="filters_entry_key" value="instance\.type.equals.c4\.xlargex"/>
               <parameter key="filters_entry_key" value="instance\.type.equals.c1\.xlargex"/>
+              <parameter key="filters_entry_key" value="instance\.type.equals.m1\.largex"/>
+              <parameter key="filters_entry_key" value="instance\.type.equals.m3\.medium (hvm)x"/>
             </list>
             <parameter key="filters_logic_and" value="false"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="false" class="filter_examples" compatibility="7.5.001" expanded="true" height="103" name="vcpus &lt;= 2" width="90" x="447" y="85">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="vcpus.le.2"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
             <parameter key="filters_check_metadata" value="true"/>
           </operator>
           <connect from_port="in 1" to_op="Only _v4" to_port="example set input"/>
@@ -362,6 +374,7 @@
         <parameter key="speculative_rounds" value="10"/>
         <parameter key="stopping_behavior" value="without increase"/>
         <parameter key="use_relative_increase" value="true"/>
+        <parameter key="minimal_relative_increase" value="0.7"/>
         <parameter key="alpha" value="0.01"/>
         <process expanded="true">
           <operator activated="true" class="filter_examples" compatibility="7.5.001" expanded="true" height="103" name="training (2)" width="90" x="45" y="34">
