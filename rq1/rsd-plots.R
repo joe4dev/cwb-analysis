@@ -12,7 +12,7 @@ src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 
 # Output directory where the resulting PDF will be saved
 out.dir <- '~/Papers/tex16-master-thesis-17/img' # script.dir
-out.file_name <- 'rsd-boxplots.pdf'
+out.file_name <- 'rsd-plot.pdf'
 
 ### END CONFIGURATION ###
 
@@ -78,19 +78,21 @@ limit.upper <- roundUp(max(df$value))
 threshold <- 5
 
 # Create plots
-pdf(file=out.file, width = 10, height = 9)
+pdf(file=out.file, width = 7, height = 8)
 p <- ggplot(df, aes(x = Group.1, y = value)) +
-  geom_boxplot() +
+  geom_violin() +
+  geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7, binwidth=0.45) +
   scale_x_discrete(name = "Configuration [Instance Type (Region)]") +
   scale_y_continuous(
     name = "Relative Standard Deviation (RSD) [%]",
     breaks = sort(c(seq(0, limit.upper, 10), threshold))) +
   # Threshold line
   geom_hline(yintercept = threshold, color="red") +
+  # Additional red threshold label (seems redundant)
   # geom_text(data=data.frame(x=0.5,y=threshold), aes(x, y), label=threshold, vjust=-1, color="red") +
-  # Mean values
-  stat_summary(fun.y=mean, colour="blue", geom="point",
-               shape=18, size=3, show.legend = TRUE) +
+  stat_summary(fun.y=mean, geom="point",
+               shape=18, size=3, colour="blue", show.legend = TRUE) +
+  # stat_summary(fun.y=median, geom="point", shape=4, size=3, colour = "green") +
   geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue")
 print(p)
 dev.off()
