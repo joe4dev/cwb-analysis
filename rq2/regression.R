@@ -21,7 +21,11 @@ micro <- 'sysbench.cpu.multi.thread.duration'
 
 # label <- 'wordpress.bench.s1.throughput'
 # micro <- 'stressng.network.icmp.flood.bogo.ops'
-# micro <- 'vcpus'
+# micro <- 'ecu'
+
+bound.upper <- "c1.xlarge"
+# bound.upper <- "c4.large"
+bound.lower <- "m1.small"
 
 ### END CONFIGURATION ###
 
@@ -40,8 +44,7 @@ all.csv <- read.csv(src.file, header = TRUE, sep = ';')
 # Split train and test data
 all <- data.table(all.csv, key = 'provider_vm_id_iteration')
 # all <- all[all$iteration == "2",] # Filter iteration
-# train <- data.table(all %>% filter(instance.type == "m1.small" | instance.type == "c4.large"), key = 'provider_vm_id_iteration')
-train <- data.table(all %>% filter(instance.type == "m1.small" | instance.type == "c1.xlarge"), key = 'provider_vm_id_iteration')
+train <- data.table(all %>% filter(instance.type == bound.lower | instance.type == bound.upper), key = 'provider_vm_id_iteration')
 test <- all[!train]
 
 # Train linear model
