@@ -54,6 +54,24 @@ prediction_average: 606.531 +/- 486.621
 spearman_rho: 0.966
 kendall_tau: 0.834
 
+## sysbench/cpu-single-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 1109.022 +/- 0.000
+absolute_error: 1060.797 +/- 323.482
+relative_error: 453.92% +/- 520.19%
+relative_error_lenient: 104.66% +/- 32.98%
+relative_error_strict: 615.45% +/- 515.42%
+normalized_absolute_error: 2.482
+root_relative_squared_error: 2.279
+squared_error: 1229930.046 +/- 609682.465
+correlation: 0.923
+squared_correlation: 0.851
+prediction_average: 606.531 +/- 486.621
+spearman_rho: 0.931
+kendall_tau: 0.784
+
 ## stressng/network-icmp-flood-bogo-ops
 
 {}
@@ -112,6 +130,24 @@ squared_correlation: 0.989
 prediction_average: 788.107 +/- 613.355
 spearman_rho: 0.974
 kendall_tau: 0.862
+
+## sysbench/cpu-single-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 1414.420 +/- 0.000
+absolute_error: 1354.488 +/- 407.364
+relative_error: 411.72% +/- 450.92%
+relative_error_lenient: 106.83% +/- 34.04%
+relative_error_strict: 576.61% +/- 461.64%
+normalized_absolute_error: 2.528
+root_relative_squared_error: 2.306
+squared_error: 2000583.245 +/- 982774.258
+correlation: 0.916
+squared_correlation: 0.838
+prediction_average: 788.107 +/- 613.355
+spearman_rho: 0.928
+kendall_tau: 0.775
 
 ## stressng/network-icmp-flood-bogo-ops
 
@@ -229,6 +265,24 @@ Multiple R-squared:  0.7955,    Adjusted R-squared:  0.7444
 F-statistic: 15.56 on 1 and 4 DF,  p-value: 0.01689
 ```
 
+## sysbench/cpu-single-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 797.386 +/- 0.000
+absolute_error: 654.678 +/- 455.215
+relative_error: 41.70% +/- 20.78%
+relative_error_lenient: 40.82% +/- 20.87%
+relative_error_strict: 94.70% +/- 78.43%
+normalized_absolute_error: 1.178
+root_relative_squared_error: 1.174
+squared_error: 635823.932 +/- 751280.950
+correlation: 0.622
+squared_correlation: 0.387
+prediction_average: 1537.738 +/- 679.267
+spearman_rho: 0.565
+kendall_tau: 0.402
+
 ## stressng/network-icmp-flood-bogo-ops
 
 {}
@@ -327,6 +381,24 @@ squared_correlation: 0.998
 prediction_average: 237.137 +/- 155.709
 spearman_rho: 0.980
 kendall_tau: 0.894
+
+## sysbench/cpu-single-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 347.313 +/- 0.000
+absolute_error: 335.251 +/- 90.738
+relative_error: 231.92% +/- 163.21%
+relative_error_lenient: 114.63% +/- 45.61%
+relative_error_strict: 300.86% +/- 150.41%
+normalized_absolute_error: 2.444
+root_relative_squared_error: 2.231
+squared_error: 120626.607 +/- 54456.848
+correlation: 0.934
+squared_correlation: 0.873
+prediction_average: 237.137 +/- 155.709
+spearman_rho: 0.975
+kendall_tau: 0.880
 
 ## stressng/network-icmp-flood-bogo-ops
 
