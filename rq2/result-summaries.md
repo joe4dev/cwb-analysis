@@ -119,6 +119,43 @@ kendall_tau: 0.862
 
 # wordpress-bench/s3-response_time
 
+## fio/4k-seq-write-bandwidth + fio/8k-rand-read-latency +sysbench/cpu-multi-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 596.460 +/- 0.000
+absolute_error: 466.404 +/- 371.796
+relative_error: 30.15% +/- 17.94%
+relative_error_lenient: 25.76% +/- 13.57%
+relative_error_strict: 39.58% +/- 27.18%
+normalized_absolute_error: 0.839
+root_relative_squared_error: 0.878
+squared_error: 355764.924 +/- 586940.229
+correlation: 0.565
+squared_correlation: 0.319
+prediction_average: 1537.738 +/- 679.267
+spearman_rho: 0.565
+kendall_tau: 0.393
+
+```
+lm(formula = as.formula(paste(label, micro, sep = " ~ ")), data = train)
+
+Residuals:
+       1        2        3        4        5        6 
+   6.026    1.589   -7.767 -546.392  608.450  -61.906 
+
+Coefficients:
+                                   Estimate Std. Error t value Pr(>|t|)
+(Intercept)                        6274.113   7735.839   0.811    0.503
+sysbench.cpu.multi.thread.duration   16.724      7.929   2.109    0.169
+fio.8k.rand.read.latency             25.991     24.032   1.082    0.393
+fio.4k.seq.write.bandwidth           -1.273      1.368  -0.931    0.450
+
+Residual standard error: 580 on 2 degrees of freedom
+Multiple R-squared:  0.9062,    Adjusted R-squared:  0.7656 
+F-statistic: 6.443 on 3 and 2 DF,  p-value: 0.1373
+```
+
 ## ecu
 
 PerformanceVector
@@ -173,11 +210,69 @@ prediction_average: 1537.738 +/- 679.267
 spearman_rho: 0.584
 kendall_tau: 0.398
 
+```
+lm(formula = as.formula(paste(label, micro, sep = " ~ ")), data = train)
+
+Residuals:
+     1      2      3      4      5      6 
+ 583.0   84.7 -673.0 -486.2  639.3 -147.7 
+
+Coefficients:
+                                   Estimate Std. Error t value Pr(>|t|)  
+(Intercept)                        1191.621    373.047   3.194   0.0331 *
+sysbench.cpu.multi.thread.duration   21.524      5.456   3.945   0.0169 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 605.6 on 4 degrees of freedom
+Multiple R-squared:  0.7955,    Adjusted R-squared:  0.7444 
+F-statistic: 15.56 on 1 and 4 DF,  p-value: 0.01689
+```
+
 ## stressng/network-icmp-flood-bogo-ops
 
 {}
 
 # md-sim-duration
+
+## fio/8k-rand-read-iops + sysbench/cpu-multi-thread-duration
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 16.415 +/- 0.000
+absolute_error: 10.644 +/- 12.496
+relative_error: 3.91% +/- 2.80%
+relative_error_lenient: 3.82% +/- 2.70%
+relative_error_strict: 4.05% +/- 2.90%
+normalized_absolute_error: 0.078
+root_relative_squared_error: 0.105
+squared_error: 269.454 +/- 468.405
+correlation: 0.999
+squared_correlation: 0.997
+prediction_average: 237.137 +/- 155.709
+spearman_rho: 0.974
+kendall_tau: 0.871
+
+
+```
+lm(formula = as.formula(paste(label, micro, sep = " ~ ")), data = train)
+
+Residuals:
+      1       2       3       4       5       6 
+-2.4788  2.0009  0.4891  1.8855 -0.7458 -1.1509 
+
+Coefficients:
+                                      Estimate  Std. Error t value     Pr(>|t|)    
+(Intercept)                        -25.6473999  10.3230310  -2.484       0.0889 .  
+sysbench.cpu.multi.thread.duration   8.7849709   0.0299605 293.219 0.0000000875 ***
+fio.8k.rand.read.iops                0.0017967   0.0007548   2.380       0.0976 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.297 on 3 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 8.907e+04 on 2 and 3 DF,  p-value: 0.00000006911
+```
 
 ## ecu
 
@@ -386,6 +481,24 @@ spearman_rho: 0.703
 kendall_tau: 0.571
 
 # wordpress-bench/s3-throughput
+
+## stressng/cpu-fft-bogo-ops
+
+PerformanceVector
+PerformanceVector:
+root_mean_squared_error: 0.293 +/- 0.000
+absolute_error: 0.219 +/- 0.194
+relative_error: 29.83% +/- 19.63%
+relative_error_lenient: 25.19% +/- 15.57%
+relative_error_strict: 39.91% +/- 30.95%
+normalized_absolute_error: 0.820
+root_relative_squared_error: 0.897
+squared_error: 0.086 +/- 0.123
+correlation: 0.525
+squared_correlation: 0.276
+prediction_average: 0.710 +/- 0.327
+spearman_rho: 0.492
+kendall_tau: 0.352
 
 ## ecu
 
