@@ -99,8 +99,8 @@ p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.ty
   geom_smooth(data=train, aes_string(x=micro, y=label),
             colour="black", size=0.4, method = "lm") +
   geom_point(size=3) +
-  # labs(x = "StressNg - Network Ping [bogo operations/s]") +
-  # labs(y = "WPBench Write - Throughput [requests/s]") +
+  # labs(x = "Sysbench - CPU Multi Thread Duration [s]") +
+  # labs(y = "WPBench Read - Response Time [ms]") +
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type")
   # scale_color_manual("Instance Type", values = myPalette)
