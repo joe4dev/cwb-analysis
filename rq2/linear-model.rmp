@@ -23,7 +23,7 @@
             <parameter key="repository_entry" value="//Local Repository/data/cwb-data-interim-selected"/>
           </operator>
           <operator activated="true" class="read_csv" compatibility="7.5.001" expanded="true" height="68" name="Read mappings" width="90" x="45" y="136">
-            <parameter key="csv_file" value="/Users/joe/Projects/CloudWorkBench/cwb-analysis/rq2/mappings.csv"/>
+            <parameter key="csv_file" value="%{mappingsFile}"/>
             <parameter key="column_separators" value=";"/>
             <parameter key="trim_lines" value="false"/>
             <parameter key="use_quotes" value="true"/>
@@ -49,6 +49,7 @@
               <parameter key="2" value="region.true.polynominal.attribute"/>
               <parameter key="3" value="vcpus.true.integer.attribute"/>
               <parameter key="4" value="ecu.true.real.attribute"/>
+              <parameter key="5" value="costs\.hourly.true.real.attribute"/>
             </list>
             <parameter key="read_not_matching_values_as_missings" value="true"/>
             <parameter key="datamanagement" value="double_array"/>
@@ -354,7 +355,7 @@
         <parameter key="include_special_attributes" value="false"/>
         <description align="center" color="transparent" colored="false" width="126">Remove all app features</description>
       </operator>
-      <operator activated="false" class="select_attributes" compatibility="7.5.001" expanded="true" height="82" name="Select feature" width="90" x="715" y="85">
+      <operator activated="true" class="select_attributes" compatibility="7.5.001" expanded="true" height="82" name="Select feature" width="90" x="715" y="34">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value="md-sim-duration"/>
         <parameter key="attributes" value="sysbench/cpu-multi-thread-duration"/>
@@ -446,7 +447,8 @@
       <connect from_op="Filter" from_port="out 1" to_op="Select Test/Training" to_port="in 1"/>
       <connect from_op="Select Test/Training" from_port="out 1" to_op="Set Label" to_port="example set input"/>
       <connect from_op="Set Label" from_port="example set output" to_op="Remove App Features" to_port="example set input"/>
-      <connect from_op="Remove App Features" from_port="example set output" to_op="Forward Selection" to_port="example set"/>
+      <connect from_op="Remove App Features" from_port="example set output" to_op="Select feature" to_port="example set input"/>
+      <connect from_op="Select feature" from_port="example set output" to_op="Forward Selection" to_port="example set"/>
       <connect from_op="Forward Selection" from_port="attribute weights" to_port="result 1"/>
       <connect from_op="Forward Selection" from_port="performance" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
