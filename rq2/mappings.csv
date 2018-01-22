@@ -1,16 +1,16 @@
 source;instance.type;region;vcpus;ecu;costs.hourly
-rmit-combined_v3_aws-eu_m1.small;m1.small;eu;1;1
-rmit-combined_v3_aws-us_c4.large;c4.large;us;2;8
-rmit-combined_v3_aws-us_c4.xlarge;c4.xlarge;us;4;16
-rmit-combined_v3_aws-us_m1.small;m1.small;us;1;1
-rmit-combined_v3_aws-us_m3.large;m3.large;us;2;6.5
-rmit-combined_v3_aws-us_m3.medium;m3.medium;us;1;3
-rmit-combined_v3_aws-us_m4.large;m4.large;us;2;6.5
-rmit-combined_v3_aws_c4.large;c4.large;eu;2;8
-rmit-combined_v3_aws_c4.xlarge;c4.xlarge;eu;4;16
-rmit-combined_v3_aws_m3.large;m3.large;eu;2;6.5
-rmit-combined_v3_aws_m3.medium;m3.medium;eu;1;3
-rmit-combined_v3_aws_m4.large;m4.large;eu;2;6.5
+rmit-combined_v3_aws-eu_m1.small;m1.small;eu;1;1;0.047
+rmit-combined_v3_aws-us_c4.large;c4.large;us;2;8;0.100
+rmit-combined_v3_aws-us_c4.xlarge;c4.xlarge;us;4;16;0.199
+rmit-combined_v3_aws-us_m1.small;m1.small;us;1;1;0.044
+rmit-combined_v3_aws-us_m3.large;m3.large;us;2;6.5;0.133
+rmit-combined_v3_aws-us_m3.medium;m3.medium (hvm);us;1;3;0.067
+rmit-combined_v3_aws-us_m4.large;m4.large;us;2;6.5;0.108
+rmit-combined_v3_aws_c4.large;c4.large;eu;2;8;0.113
+rmit-combined_v3_aws_c4.xlarge;c4.xlarge;eu;4;16;0.226
+rmit-combined_v3_aws_m3.large;m3.large;eu;2;6.5;0.146
+rmit-combined_v3_aws_m3.medium;m3.medium (hvm);eu;1;3;0.073
+rmit-combined_v3_aws_m4.large;m4.large;eu;2;6.5;0.111
 rmit-combined_v4_aws-eu_c4.large;c4.large;eu;2;8;0.113
 rmit-combined_v4_aws-eu_c4.xlarge;c4.xlarge;eu;4;16;0.226
 rmit-combined_v4_aws-eu_m1.small;m1.small;eu;1;1;0.047
