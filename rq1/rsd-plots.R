@@ -7,11 +7,11 @@ library(ggplot2)
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
 
 # Input directory where the input CSV is located
-src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
+src.dir <- '~/Projects/cwb-analysis/rq1' # script.dir
 src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '~/Papers/tex16-master-thesis-17/img' # script.dir
+out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
 out.file_name <- 'rsd-plot.pdf'
 
 ### END CONFIGURATION ###
@@ -73,13 +73,19 @@ roundUp <- function(x,to=5)
   to*(x%/%to + as.logical(x%%to))
 }
 limit.upper <- roundUp(max(df$value))
+limit.upper <- 30
+
+# Filter the 2 outliers for m3.large (eu)
+# * m3.large (eu);sysbench.threads.1.latency;56.05676686
+# * m3.large (eu);sysbench.threads.128.latency;54.44602421
+df2 <- df[df$value <= limit.upper,]
 
 # RSD threshold
 threshold <- 5
 
 # Create plots
 pdf(file=out.file, width = 7, height = 8)
-p <- ggplot(df, aes(x = Group.1, y = value)) +
+p <- ggplot(df2, aes(x = Group.1, y = value)) +
   geom_violin() +
   geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7, binwidth=0.45) +
   scale_x_discrete(name = "Configuration [Instance Type (Region)]") +
