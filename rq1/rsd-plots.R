@@ -11,7 +11,7 @@ src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
 src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '~/Papers/tex16-master-thesis-17/img' # script.dir
+out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
 out.file_name <- 'rsd-plot.pdf'
 
 ### END CONFIGURATION ###
@@ -36,15 +36,19 @@ vars.nominal <- names(cwb) %in% (cols.nominal)
 cwb.cv <- aggregate(cwb[!vars.nominal], by=list(cwb$source), FUN=cv)
 
 # Assign labels
-
 cwb.cv$Group.1 <- factor(cwb.cv$Group.1, c("rmit-combined_v3_aws-eu_m1.small", "rmit-combined_v3_aws-us_m1.small", "rmit-combined_v3_aws_m3.medium", "rmit-combined_v3_aws-us_m3.medium", "rmit-combined_v3_aws_m3.large"))
 cwb.cv$Group.1 <- factor(cwb.cv$Group.1, labels = c("m1.small (eu)", "m1.small (us)", "m3.medium (eu)", "m3.medium (us)", "m3.large (eu)"))
 
 # Reshape data
 df <- melt(cwb.cv, id.vars = 'Group.1')
 
+# Filter the 2 outliers for m3.large (eu)
+# * m3.large (eu);sysbench.threads.1.latency;56.05676686
+# * m3.large (eu);sysbench.threads.128.latency;54.44602421
+df2 <- df[df$value <= limit.upper,]
+
 # Calculate means
-means <- aggregate(value ~  Group.1, df, mean)
+means <- aggregate(value ~  Group.1, df2, mean)
 means$value <- round(means$value, digits = 2)
 
 ### Relevant sample sizes
@@ -72,14 +76,15 @@ roundUp <- function(x,to=5)
 {
   to*(x%/%to + as.logical(x%%to))
 }
-limit.upper <- roundUp(max(df$value))
+limit.upper <- roundUp(max(df2$value))
+limit.upper <- 30
 
 # RSD threshold
 threshold <- 5
 
 # Create plots
-pdf(file=out.file, width = 7, height = 8)
-p <- ggplot(df, aes(x = Group.1, y = value)) +
+pdf(file=out.file, width = 7, height = 5)
+p <- ggplot(df2, aes(x = Group.1, y = value)) +
   geom_violin() +
   geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7, binwidth=0.45) +
   scale_x_discrete(name = "Configuration [Instance Type (Region)]") +
@@ -93,7 +98,8 @@ p <- ggplot(df, aes(x = Group.1, y = value)) +
   stat_summary(fun.y=mean, geom="point",
                shape=18, size=3, colour="blue", show.legend = TRUE) +
   # stat_summary(fun.y=median, geom="point", shape=4, size=3, colour = "green") +
-  geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue")
+  geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue") +
+  annotate("text", x="m3.large (eu)", y=28, label= "2 outliers\n(54% and 56%)")
 print(p)
 dev.off()
 # Yield interactively
