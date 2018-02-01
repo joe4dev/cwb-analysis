@@ -1,5 +1,22 @@
 # wordpress-bench/s1-response_time
 
+## cost
+
+PerformanceVector:
+root_mean_squared_error: 1617.707 +/- 0.000
+absolute_error: 1584.231 +/- 327.396
+relative_error: 663.30% +/- 730.45%
+relative_error_lenient: 74.08% +/- 18.92%
+relative_error_strict: 663.30% +/- 730.45%
+normalized_absolute_error: 3.707
+root_relative_squared_error: 3.324
+squared_error: 2616976.362 +/- 1009216.257
+correlation: 0.769
+squared_correlation: 0.591
+prediction_average: 606.531 +/- 486.621
+spearman_rho: 0.750
+kendall_tau: 0.520
+
 ## ecu
 
 PerformanceVector
@@ -77,6 +94,23 @@ kendall_tau: 0.784
 {}
 
 # wordpress-bench/s2-response_time
+
+## cost
+
+PerformanceVector:
+root_mean_squared_error: 1976.950 +/- 0.000
+absolute_error: 1934.529 +/- 407.343
+relative_error: 585.91% +/- 622.30%
+relative_error_lenient: 72.87% +/- 19.09%
+relative_error_strict: 585.91% +/- 622.30%
+normalized_absolute_error: 3.610
+root_relative_squared_error: 3.223
+squared_error: 3908331.096 +/- 1518333.595
+correlation: 0.782
+squared_correlation: 0.612
+prediction_average: 788.107 +/- 613.355
+spearman_rho: 0.756
+kendall_tau: 0.540
 
 ## ecu
 
@@ -191,6 +225,23 @@ Residual standard error: 580 on 2 degrees of freedom
 Multiple R-squared:  0.9062,    Adjusted R-squared:  0.7656 
 F-statistic: 6.443 on 3 and 2 DF,  p-value: 0.1373
 ```
+
+## cost
+
+PerformanceVector:
+root_mean_squared_error: 1528.612 +/- 0.000
+absolute_error: 1419.430 +/- 567.338
+relative_error: 127.31% +/- 91.28%
+relative_error_lenient: 48.73% +/- 19.69%
+relative_error_strict: 127.33% +/- 91.26%
+normalized_absolute_error: 2.553
+root_relative_squared_error: 2.250
+squared_error: 2336653.441 +/- 1522761.900
+correlation: 0.477
+squared_correlation: 0.227
+prediction_average: 1537.738 +/- 679.267
+spearman_rho: 0.503
+kendall_tau: 0.361
 
 ## ecu
 
@@ -327,6 +378,23 @@ Residual standard error: 2.297 on 3 degrees of freedom
 Multiple R-squared:      1, Adjusted R-squared:      1 
 F-statistic: 8.907e+04 on 2 and 3 DF,  p-value: 0.00000006911
 ```
+
+## cost
+
+PerformanceVector:
+root_mean_squared_error: 483.407 +/- 0.000
+absolute_error: 471.391 +/- 107.111
+relative_error: 329.27% +/- 221.91%
+relative_error_lenient: 68.08% +/- 18.40%
+relative_error_strict: 329.27% +/- 221.91%
+normalized_absolute_error: 3.436
+root_relative_squared_error: 3.105
+squared_error: 233682.342 +/- 97698.095
+correlation: 0.761
+squared_correlation: 0.579
+prediction_average: 237.137 +/- 155.709
+spearman_rho: 0.811
+kendall_tau: 0.607
 
 ## ecu
 
