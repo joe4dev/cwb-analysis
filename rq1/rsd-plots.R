@@ -36,15 +36,19 @@ vars.nominal <- names(cwb) %in% (cols.nominal)
 cwb.cv <- aggregate(cwb[!vars.nominal], by=list(cwb$source), FUN=cv)
 
 # Assign labels
-
 cwb.cv$Group.1 <- factor(cwb.cv$Group.1, c("rmit-combined_v3_aws-eu_m1.small", "rmit-combined_v3_aws-us_m1.small", "rmit-combined_v3_aws_m3.medium", "rmit-combined_v3_aws-us_m3.medium", "rmit-combined_v3_aws_m3.large"))
 cwb.cv$Group.1 <- factor(cwb.cv$Group.1, labels = c("m1.small (eu)", "m1.small (us)", "m3.medium (eu)", "m3.medium (us)", "m3.large (eu)"))
 
 # Reshape data
 df <- melt(cwb.cv, id.vars = 'Group.1')
 
+# Filter the 2 outliers for m3.large (eu)
+# * m3.large (eu);sysbench.threads.1.latency;56.05676686
+# * m3.large (eu);sysbench.threads.128.latency;54.44602421
+df2 <- df[df$value <= limit.upper,]
+
 # Calculate means
-means <- aggregate(value ~  Group.1, df, mean)
+means <- aggregate(value ~  Group.1, df2, mean)
 means$value <- round(means$value, digits = 2)
 
 ### Relevant sample sizes
@@ -72,19 +76,14 @@ roundUp <- function(x,to=5)
 {
   to*(x%/%to + as.logical(x%%to))
 }
-limit.upper <- roundUp(max(df$value))
+limit.upper <- roundUp(max(df2$value))
 limit.upper <- 30
-
-# Filter the 2 outliers for m3.large (eu)
-# * m3.large (eu);sysbench.threads.1.latency;56.05676686
-# * m3.large (eu);sysbench.threads.128.latency;54.44602421
-df2 <- df[df$value <= limit.upper,]
 
 # RSD threshold
 threshold <- 5
 
 # Create plots
-pdf(file=out.file, width = 7, height = 8)
+pdf(file=out.file, width = 7, height = 5)
 p <- ggplot(df2, aes(x = Group.1, y = value)) +
   geom_violin() +
   geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7, binwidth=0.45) +
