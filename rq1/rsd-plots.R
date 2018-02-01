@@ -98,7 +98,8 @@ p <- ggplot(df2, aes(x = Group.1, y = value)) +
   stat_summary(fun.y=mean, geom="point",
                shape=18, size=3, colour="blue", show.legend = TRUE) +
   # stat_summary(fun.y=median, geom="point", shape=4, size=3, colour = "green") +
-  geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue")
+  geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue") +
+  annotate("text", x="m3.large (eu)", y=28, label= "2 outliers\n(54% and 56%)")
 print(p)
 dev.off()
 # Yield interactively
