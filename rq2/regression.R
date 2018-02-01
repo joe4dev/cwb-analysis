@@ -11,11 +11,13 @@ src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq2' # script.dir
 src.file_name <- 'all.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- src.dir #'~/Papers/tex16-master-thesis-17/img' # script.dir
-out.file_name <- 'graph-regression.pdf'
+out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+out.file_name <- 'wpbench-regression.pdf'
+out.file_name <- 'wpbench-iterations.pdf'
 
 # Define label and benchmark for linear model
 label <- 'wordpress.bench.s1.response_time'
+label <- 'wordpress.bench.s3.response_time'
 # label <- 'md.sim.duration'
 micro <- 'sysbench.cpu.multi.thread.duration'
 
@@ -91,16 +93,18 @@ n <- length(unique(all$instance.type))
 myPalette <- colorRampPalette(brewer.pal(9, "Set1"))(n)
 
 # Generate plot
-pdf(file=out.file, width = 7.50, height = 8)
-p <- ggplot(visual, aes_string(x=micro, y=label, group='group', col='instance.type', shape = 'group')) +
+pdf(file=out.file, width = 7, height = 4.5)
+p <- ggplot(visual, aes_string(x=micro, y=label, col='instance.type', group='group', shape = 'group')) +
   # Color according to:
   # library(scales)
   # show_col(hue_pal()(2))
   geom_smooth(data=train, aes_string(x=micro, y=label),
             colour="black", size=0.4, method = "lm") +
-  geom_point(size=3) +
-  # labs(x = "Sysbench - CPU Multi Thread Duration [s]") +
-  # labs(y = "WPBench Read - Response Time [ms]") +
+  geom_point(size=6, colour = "gray20", show.legend = FALSE, alpha=0.6) +
+  geom_point(size=4, alpha=0.6) +
+  labs(x = "Sysbench - CPU Multi Thread Duration [s]") +
+  labs(y = "WPBench Read - Response Time [ms]") +
+  labs(y = "WPBench Write - Response Time [ms]") +
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type")
   # scale_color_manual("Instance Type", values = myPalette)
