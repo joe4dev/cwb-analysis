@@ -1,0 +1,55 @@
+{
+  "instance_type": "m1.small",
+  "eu-west-1": "0.047",
+  "us-east-1": "0.044"
+}
+{
+  "instance_type": "m1.medium",
+  "eu-west-1": "0.095",
+  "us-east-1": "0.087"
+}
+{
+  "instance_type": "m1.large",
+  "eu-west-1": "0.19",
+  "us-east-1": "0.175"
+}
+{
+  "instance_type": "c1.xlarge",
+  "eu-west-1": "0.592",
+  "us-east-1": "0.52"
+}
+{
+  "instance_type": "m4.large",
+  "eu-west-1": "0.111",
+  "us-east-1": "0.1"
+}
+{
+  "instance_type": "m3.medium",
+  "eu-west-1": "0.073",
+  "us-east-1": "0.067"
+}
+{
+  "instance_type": "m3.large",
+  "eu-west-1": "0.146",
+  "us-east-1": "0.133"
+}
+{
+  "instance_type": "c4.large",
+  "eu-west-1": "0.113",
+  "us-east-1": "0.1"
+}
+{
+  "instance_type": "c4.xlarge",
+  "eu-west-1": "0.226",
+  "us-east-1": "0.199"
+}
+{
+  "instance_type": "c3.large",
+  "eu-west-1": "0.12",
+  "us-east-1": "0.105"
+}
+{
+  "instance_type": "c3.xlarge",
+  "eu-west-1": "0.239",
+  "us-east-1": "0.21"
+}
