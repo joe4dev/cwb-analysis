@@ -93,7 +93,6 @@ n <- length(unique(all$instance.type))
 myPalette <- colorRampPalette(brewer.pal(9, "Set1"))(n)
 
 # Generate plot
-pdf(file=out.file, width = 7, height = 4.5)
 p <- ggplot(visual, aes_string(x=micro, y=label, col='instance.type', group='group', shape = 'group')) +
   # Color according to:
   # library(scales)
@@ -108,8 +107,7 @@ p <- ggplot(visual, aes_string(x=micro, y=label, col='instance.type', group='gro
   scale_shape_discrete("Group") +
   scale_color_discrete("Instance Type")
   # scale_color_manual("Instance Type", values = myPalette)
-print(p)
-dev.off()
+ggsave(out.file, width = 7, height = 4.5, device=cairo_pdf)
 
 # Yield interactively
 p
