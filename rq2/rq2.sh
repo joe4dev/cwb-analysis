@@ -14,4 +14,5 @@ rapidminer-batch.sh -f $select
 rapidminer-batch.sh -f $linear_model -MmappingsFile=$mappingsFile
 
 # Generate plot
-Rscript $SCRIPTPATH/regression.R
+Rscript $SCRIPTPATH/wpbench-regression.R
+Rscript $SCRIPTPATH/wpbench-iterations.R
