@@ -100,7 +100,7 @@ p <- ggplot(visual, aes_string(x=micro, y=label, col='instance.type', group='gro
   # show_col(hue_pal()(2))
   geom_smooth(data=train, aes_string(x=micro, y=label),
             colour="black", size=0.4, method = "lm") +
-  geom_point(size=6, colour = "gray20", show.legend = FALSE, alpha=0.6) +
+  geom_point(size=6, colour = "gray20", show.legend = FALSE, alpha=1) +
   geom_point(size=4, alpha=0.6) +
   labs(x = "Sysbench - CPU Multi Thread Duration [s]") +
   labs(y = "WPBench Read - Response Time [ms]") +
