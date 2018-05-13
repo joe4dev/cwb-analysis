@@ -3,15 +3,20 @@ library(raster)
 library(reshape2)
 library(ggplot2)
 
+# With Microsoft R, fixing the "Fontconfig error: Cannot load default config file"
+# brew install cairo
+# install.packages("gdtools")
+# => Still uses another font and wrong colering
+
 ### BEGIN CONFIGUARION ###
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
 
 # Input directory where the input CSV is located
-src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
+src.dir <- '/Users/joe/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
 src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+out.dir <- '/Users/joe/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
 out.file_name <- 'rsd-plot.pdf'
 
 ### END CONFIGURATION ###
@@ -42,6 +47,15 @@ cwb.cv$Group.1 <- factor(cwb.cv$Group.1, labels = c("m1.small (eu)", "m1.small (
 # Reshape data
 df <- melt(cwb.cv, id.vars = 'Group.1')
 
+# Axis helper
+roundUp <- function(x,to=5)
+{
+  to*(x%/%to + as.logical(x%%to))
+}
+
+# Set axis upper limit
+# limit.upper <- roundUp(max(df2$value))
+limit.upper <- 30
 # Filter the 2 outliers for m3.large (eu)
 # * m3.large (eu);sysbench.threads.1.latency;56.05676686
 # * m3.large (eu);sysbench.threads.128.latency;54.44602421
@@ -71,19 +85,10 @@ cwb.n99 <- cbind(cwb.n99, Group.1 = as.vector(cwb.sd$Group.1))
 
 ### Plotting ###
 
-# Axis helper
-roundUp <- function(x,to=5)
-{
-  to*(x%/%to + as.logical(x%%to))
-}
-limit.upper <- roundUp(max(df2$value))
-limit.upper <- 30
-
 # RSD threshold
 threshold <- 5
 
 # Create plots
-pdf(file=out.file, width = 7, height = 5)
 p <- ggplot(df2, aes(x = Group.1, y = value)) +
   geom_violin() +
   geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7, binwidth=0.45) +
@@ -100,7 +105,6 @@ p <- ggplot(df2, aes(x = Group.1, y = value)) +
   # stat_summary(fun.y=median, geom="point", shape=4, size=3, colour = "green") +
   geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue") +
   annotate("text", x="m3.large (eu)", y=28, label= "2 outliers\n(54% and 56%)")
-print(p)
-dev.off()
+p <- p + ggsave(out.file, width = 7, height = 5, device=cairo_pdf)
 # Yield interactively
 p
