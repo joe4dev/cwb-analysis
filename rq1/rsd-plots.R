@@ -3,6 +3,10 @@ library(raster)
 library(reshape2)
 library(ggplot2)
 
+# Attempt to fix ZapfDingbats font embeding: https://github.com/wch/extrafont
+#library(extrafont)
+#loadfonts()
+
 # With Microsoft R, fixing the "Fontconfig error: Cannot load default config file"
 # brew install cairo
 # install.packages("gdtools")
@@ -105,6 +109,7 @@ p <- ggplot(df2, aes(x = Group.1, y = value)) +
   # stat_summary(fun.y=median, geom="point", shape=4, size=3, colour = "green") +
   geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue") +
   annotate("text", x="m3.large (eu)", y=28, label= "2 outliers\n(54% and 56%)")
-p <- p + ggsave(out.file, width = 7, height = 5)
+p <- p + ggsave(out.file, width = 7, height = 5, useDingbats=FALSE)
+embedFonts(out.file)
 # Yield interactively
 p
