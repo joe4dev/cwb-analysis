@@ -22,6 +22,7 @@ src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 # Output directory where the resulting PDF will be saved
 out.dir <- '/Users/joe/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
 out.file_name <- 'rsd-plot.pdf'
+# out.file_name <- 'rsd-plot-wide.pdf'
 
 ### END CONFIGURATION ###
 
@@ -110,6 +111,7 @@ p <- ggplot(df2, aes(x = Group.1, y = value)) +
   geom_text(data = means, aes(label = value, y = value, hjust = -0.3), color = "blue") +
   annotate("text", x="m3.large (eu)", y=28, label= "2 outliers\n(54% and 56%)")
 p <- p + ggsave(out.file, width = 7, height = 5, useDingbats=FALSE)
+# p <- p + ggsave(out.file, width = 11, height = 5, useDingbats=FALSE)
 embedFonts(out.file)
 # Yield interactively
 p
