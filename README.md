@@ -3,6 +3,31 @@
 This repository stores the data (raw and interim) and analysis scripts for the [CWB](https://github.com/sealuzh/cloud-workbench) cloud benchmarking experiments combining micro and application benchmarks.
 Every directory contains the data (incl. docs) and scripts (incl. docs) to produce or update this data.
 
+## Paper
+
+J. Scheuner and P. Leitner, “[Estimating Cloud Application Performance Based on Micro-Benchmark Profiling](https://doi.org/10.1109/CLOUD.2018.00019),” 2018 IEEE 11th International Conference on Cloud Computing (CLOUD), [PDF, slides, code, etc](https://joelscheuner.com/publication/scheuner-18-cloud/)
+
+### Abstract
+
+The continuing growth of the cloud computing market has led to an unprecedented diversity of cloud services. To support service selection, micro-benchmarks are commonly used to identify the best performing cloud service. However, it remains unclear how relevant these synthetic micro-benchmarks are for gaining insights into the performance of real-world applications. Therefore, this paper develops a cloud benchmarking methodology that uses micro-benchmarks to profile applications and subsequently predicts how an application performs on a wide range of cloud services. A study with a real cloud provider (Amazon EC2) has been conducted to quantitatively evaluate the estimation model with 38 metrics from 23 micro-benchmarks and 2 applications from different domains. The results reveal remarkably low variability in cloud service performance and show that selected micro-benchmarks can estimate the duration of a scientific computing application with a relative error of less than 10% and the response time of a Web serving application with a relative error between 10% and 20%. In conclusion, this paper emphasizes the importance of cloud benchmarking by substantiating the suitability of micro-benchmarks for estimating application performance in comparison to common baselines but also highlights that only selected micro-benchmarks are relevant to estimate the performance of a particular application.
+
+### Citation
+
+```bibtex
+@inproceedings{scheuner:18-cloud,
+  author = {Scheuner, Joel and Leitner, Philipp},
+  booktitle = {2018 IEEE 11th International Conference on Cloud Computing
+  (CLOUD)},
+  doi = {10.1109/CLOUD.2018.00019},
+  month = {July},
+  pages = {90--97},
+  publisher = {IEEE},
+  title = {Estimating Cloud Application Performance Based on
+  Micro-Benchmark Profiling},
+  year = {2018}
+}
+```
+
 ## Repository Structure
 
 | File | Explanation |
