@@ -16,11 +16,13 @@ library(ggplot2)
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
 
 # Input directory where the input CSV is located
-src.dir <- '/Users/joe/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
+# src.dir <- '/Users/joe/Projects/CloudWorkBench/cwb-analysis/rq1' # script.dir
+src.dir <- '.'
 src.file_name <- 'cwb-interim-aggregated-selected-filtered.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '/Users/joe/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+# out.dir <- '/Users/joe/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+out.dir <- '.'
 out.file_name <- 'rsd-plot.pdf'
 # out.file_name <- 'rsd-plot-wide.pdf'
 

@@ -7,11 +7,13 @@ library(RColorBrewer)
 # script.dir <- dirname(sys.frame(1)$ofile) # doesn't work in CLI
 
 # Input directory where the input CSV is located
-src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq2' # script.dir
+# src.dir <- '~/Projects/CloudWorkBench/cwb-analysis/rq2' # script.dir
+src.dir <- '.'
 src.file_name <- 'all.csv'
 
 # Output directory where the resulting PDF will be saved
-out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+# out.dir <- '~/Dropbox/Papers/tex18-app-perf-cloud18/img' # script.dir
+out.dir <- '.'
 out.file_name <- 'wpbench-regression.pdf'
 
 # Define label and benchmark for linear model
