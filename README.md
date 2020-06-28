@@ -25,10 +25,17 @@ Every directory contains the data (incl. docs) and scripts (incl. docs) to produ
 | `├──` export-cwb-data.sh | Exports CWB data to `cwb-data-raw.csv` |
 | `├──` export-cwb-data-local.sh | Exports local CWB data to `cwb-data-raw.csv` |
 
-## Software
+## Software Requirements
 
 * Initially created with RapidMiner Studio 7.5.001 but also compatible with 9.7.1. Free [educational](https://rapidminer.com/educational-program/) license available.
   * Statistical tests require the extension `Statistics Extension` (e.g., 2.3.456), which is available through the extensions marketplace.
   * For CLI execution, verify the RapidMiner path in the *.sh scripts (alternatively add scripts directory to the PATH).
-    * MacOS: `RMP_BIN="/Applications/RapidMiner\ Studio.app/Contents/Resources/RapidMiner-Studio/scripts/rapidminer-batch-osx.sh"`
+    * MacOS: `RMP_BIN="/Applications/RapidMiner Studio.app/Contents/Resources/RapidMiner-Studio/scripts/rapidminer-batch-osx.sh"`
 * Plots are created with [R](https://www.r-project.org/about.html) (e.g., 3.61). Dependencies are declared in every script.
+  * Install all dependencies via `RScript install-dependencies.R`
+
+## Steps to Reproduce
+
+1. **data_interim**: `cd data_interim && ./pre-process.sh`
+2. **rq1 (prestudy CVs)**: `cd rq1 && ./rq1.sh` (depends on step 1)
+3. **rq2 (estimation model)**: `cd rq2 && ./rq2.sh` (depends on step 1)
