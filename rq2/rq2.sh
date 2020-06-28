@@ -13,8 +13,8 @@ linear_model=$SCRIPTPATH/linear-model.rmp
 mappingsFile=$SCRIPTPATH/mappings.csv
 
 # Run RapidMiner script in CLI-mode
-$RMP_BIN -f $select
-$RMP_BIN -f $linear_model -MmappingsFile=$mappingsFile
+"$RMP_BIN" -f $select
+"$RMP_BIN" -f $linear_model -MmappingsFile=$mappingsFile
 
 # Generate plot
 Rscript $SCRIPTPATH/wpbench-regression.R
